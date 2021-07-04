@@ -2,6 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## 템플릿 복사
+
+ROBOCOPY [템플릿폴더위치] [복사할폴더위치] /E 
+cp -R [템플릿] []
+[참고](https://server-talk.tistory.com/163)
+
+
 ## Available Scripts
 
 In the project directory, you can run:
