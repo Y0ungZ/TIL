@@ -8,7 +8,7 @@ ROBOCOPY [템플릿폴더위치] [복사할폴더위치] /E
 
 cp -R [템플릿] [복사할곳]
 
-참고(https://server-talk.tistory.com/163)
+[참고](https://server-talk.tistory.com/163)
 
 
 ## Available Scripts
