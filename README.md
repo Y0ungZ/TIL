@@ -1,25 +1,57 @@
-# Web
+# 📃 TIL : Today I Learned
+
+## CS
+
+- [알고리즘](https://github.com/Y0ungZ/TIL/tree/main/CS/알고리즘.md)
+- [자료구조](https://github.com/Y0ungZ/TIL/tree/main/CS/자료구조.md)
+- [프론트엔드 지식](https://github.com/Y0ungZ/TIL/tree/main/CS/프론트엔드.md)
+
+---
+
 ## CSS
-### float
-#### * 간단한 semantic tag layout
-![0306_float](https://user-images.githubusercontent.com/61743793/110141681-bff8ca80-7e18-11eb-95f9-4d48f04a1fa3.JPG)
----
-### flex
-#### * wrap과 direction ( [flex-wrap_direction.html](https://github.com/Y0ungZ/Web/blob/main/CSS/flex/flex-wrap_direction.html) )
-![0309_flex01](https://user-images.githubusercontent.com/61743793/110490937-1f661b80-8134-11eb-9b62-f3f33dfdf2c3.JPG)
-![0309_flex02](https://user-images.githubusercontent.com/61743793/110491576-c21e9a00-8134-11eb-80ae-5a90b1c91c91.JPG)
-![0310_flex03](https://user-images.githubusercontent.com/61743793/110491635-d1054c80-8134-11eb-9125-5be8cc095d04.JPG)
-![0310_flex04](https://user-images.githubusercontent.com/61743793/110491670-d95d8780-8134-11eb-93a1-336d613db4c6.JPG)
 
-#### * justify-content ( [flex-jusifycontent.html](https://github.com/Y0ungZ/Web/blob/main/CSS/flex/flex-justifycontent.html) )
-![0312_flex01](https://user-images.githubusercontent.com/61743793/110953779-158a2580-838b-11eb-8e9e-13a63c7e9519.JPG)
-![0312_flex02](https://user-images.githubusercontent.com/61743793/110953803-1d49ca00-838b-11eb-9500-1a6b9fa8ec8e.JPG)
-![0312_flex03](https://user-images.githubusercontent.com/61743793/110953840-2470d800-838b-11eb-88d7-80a92a8680df.JPG)
-![0312_flex04](https://user-images.githubusercontent.com/61743793/110953862-2aff4f80-838b-11eb-906e-3f9d07add493.JPG)
-![0312_flex05](https://user-images.githubusercontent.com/61743793/110953885-32265d80-838b-11eb-9bc6-01b775a68750.JPG)
-
-
-
+- [flex](https://github.com/Y0ungZ/TIL/tree/main/CSS/flex)
+- [float](https://github.com/Y0ungZ/TIL/tree/main/CSS/float)
 
 ---
+
 ## JavaScript
+
+- React.js
+  - [card-maker](https://github.com/Y0ungZ/TIL/tree/main/JavaScript/React/react-basic/card-maker) : 자기소개 카드를 만들어보는 프로젝트
+  - [habit-tracker](https://github.com/Y0ungZ/TIL/tree/main/JavaScript/React/react-basic/habit-tracker) : 간단한 To-Do 프로젝트
+  - [router](https://github.com/Y0ungZ/TIL/tree/main/JavaScript/React/react-basic/router) : 리액트 라우터 공부
+  - template : 리액트 프로젝트 시작 시 복사할 템플릿
+  - test : 리액트 테스트용
+
+---
+
+## Example
+
+- 템플릿 만들어보기
+
+---
+
+## Problem-Solving
+
+- 백준
+  - [Java](https://github.com/Y0ungZ/TIL/tree/main/Problem-Solving/%EB%B0%B1%EC%A4%80/JAVA)
+  - [JavaScript](https://github.com/Y0ungZ/TIL/tree/main/Problem-Solving/%EB%B0%B1%EC%A4%80/JavaScript)
+- 프로그래머스
+  - [Java](https://github.com/Y0ungZ/TIL/tree/main/Problem-Solving/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/JAVA)
+  - [JavaScript](https://github.com/Y0ungZ/TIL/tree/main/Problem-Solving/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4/JavaScript)
+
+---
+
+## TypeScript
+
+- [타입스크립트의 기본타입들](https://github.com/Y0ungZ/TIL/tree/main/TypeScript/1-TYPES)
+- [계산기,키보드,로딩문제](https://github.com/Y0ungZ/TIL/tree/main/TypeScript/2-EXAMPLE)
+- [객체지향의 이해](https://github.com/Y0ungZ/TIL/tree/main/TypeScript/3-OOP)
+- [객체지향적으로 스택구현](https://github.com/Y0ungZ/TIL/tree/main/TypeScript/4-OOP-PROJECT)
+- [제네릭](https://github.com/Y0ungZ/TIL/tree/main/TypeScript/5-GENERIC)
+- [객체지향+제네릭 스택구현](https://github.com/Y0ungZ/TIL/tree/main/TypeScript/6-GENERIC-PROJECT)
+- [API를 보는법](https://github.com/Y0ungZ/TIL/tree/main/TypeScript/7-API)
+- [예외처리, 핸들링](https://github.com/Y0ungZ/TIL/tree/main/TypeScript/8-EXCEPTION)
+- [JavaScript의 프로토, this, 모듈화](https://github.com/Y0ungZ/TIL/tree/main/TypeScript/10-JAVASCRIPT)
+- [tsc 빌드와 tsconfig.json에 대해](https://github.com/Y0ungZ/TIL/tree/main/TypeScript/11-CONFIG)
