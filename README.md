@@ -23,6 +23,8 @@
   - [router](https://github.com/Y0ungZ/TIL/tree/main/JavaScript/React/react-basic/router) : 리액트 라우터 공부
   - template : 리액트 프로젝트 시작 시 복사할 템플릿
   - test : 리액트 테스트용
+ - markdown : JavaScript에 대한 공부정리
+  - [Array.prototype.reduce()](https://github.com/Y0ungZ/TIL/blob/main/JavaScript/markdown/reduce.md)
 
 
 
