@@ -21,6 +21,7 @@
   - test : 리액트 테스트용
 - markdown : JavaScript 공부정리
   - [Array.prototype.reduce()](https://github.com/Y0ungZ/TIL/blob/main/JavaScript/markdown/reduce.md)
+- [modernJS](https://github.com/Y0ungZ/TIL/tree/main/JavaScript/modernJS) : [모던자바스크립트](https://ko.javascript.info/)의 과제풀이
 
 ## Example
 
