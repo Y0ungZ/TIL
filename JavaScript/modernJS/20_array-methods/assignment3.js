@@ -1,0 +1,13 @@
+const filterRangeInPlace = (array, start, end) => {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] < start || array[i] > end) {
+      array.splice(i, 1);
+    }
+  }
+};
+
+let arr = [5, 3, 8, 1];
+
+filterRangeInPlace(arr, 1, 4); // 1과 4 사이에 있지 않은 요소는 모두 제거함
+
+console.log(arr); // [3, 1]
