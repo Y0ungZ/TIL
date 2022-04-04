@@ -2,7 +2,7 @@
 ## 목적
 [모던자바스크립트](https://ko.javascript.info/promise-error-handling#tasks) 프라미스 에러 핸들링 과제에 대한 정리
 
----
+
 
 ## 과제 내용
 **setTimeout에서의 에러**
