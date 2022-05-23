@@ -14,22 +14,6 @@ function App() {
     $('.menu-count').innerText = `총 ${menuCount}개`;
   };
 
-  //이벤트 위임
-  espressoMenuList.addEventListener('click', (e) => {
-    const type = e.target.classList;
-    if (type.contains('menu-edit-button')) {
-      const $menuName = e.target.closest('li').querySelector('.menu-name');
-      const updatedMenuName = prompt('메뉴명을 수정하세요!', $menuName.innerText);
-      $menuName.innerText = updatedMenuName;
-    }
-    if (type.contains('menu-remove-button')) {
-      if (confirm('정말 삭제하시겠습니까?')) {
-        e.target.closest('li').remove();
-        updateMenuCount();
-      }
-    }
-  });
-
   const addMenuName = () => {
     if (!espressoInput.value) {
       alert('메뉴명을 입력해주세요.');
@@ -59,10 +43,32 @@ function App() {
     espressoInput.value = '';
   };
 
-  //확인버튼
-  espressoBtn.addEventListener('click', () => {
-    addMenuName();
+  const updateMenuName = (e) => {
+    const $menuName = e.target.closest('li').querySelector('.menu-name');
+    const updatedMenuName = prompt('메뉴명을 수정하세요!', $menuName.innerText);
+    $menuName.innerText = updatedMenuName;
+  };
+
+  const removeMenuName = (e) => {
+    if (confirm('정말 삭제하시겠습니까?')) {
+      e.target.closest('li').remove();
+      updateMenuCount();
+    }
+  };
+
+  //이벤트 위임 : 메뉴수정과 삭제
+  espressoMenuList.addEventListener('click', (e) => {
+    const type = e.target.classList;
+    if (type.contains('menu-edit-button')) {
+      updateMenuName(e);
+    }
+    if (type.contains('menu-remove-button')) {
+      removeMenuName(e);
+    }
   });
+
+  //확인버튼
+  espressoBtn.addEventListener('click', addMenuName);
 
   //메뉴입력
   espressoInput.addEventListener('keydown', (e) => {
