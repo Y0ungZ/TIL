@@ -6,7 +6,8 @@
 var person = {
     name: 'YoungJu',
     age: 100,
-    hobbies: ['Drawing', 'Eating']
+    hobbies: ['Drawing', 'Eating'],
+    role: [2, 'author']
 };
 //person:object => 포괄적. person.name을 할 경우 컴파일 오류.
 //WHY? object를 타입스크립트는 어떤 정보도 주지 않는 객체가 있다고 이해한다.

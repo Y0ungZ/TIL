@@ -3,10 +3,16 @@
 //     name: string;
 //     age: number;
 // } = {
-const person = {
+const person: {
+  name: string;
+  age: number;
+  hobbies: string[];
+  role: [number, string]; // tuple
+} = {
   name: 'YoungJu',
   age: 100,
-  hobbies:['Drawing','Eating']
+  hobbies: ['Drawing', 'Eating'],
+  role: [2,'author']
 };
 
 //person:object => 포괄적. person.name을 할 경우 컴파일 오류.
@@ -25,3 +31,5 @@ for (const hobby of person.hobbies) {
   //hobby surely string
   console.log(hobby.toUpperCase());
 }
+
+//주의! tuple의 경우 push는 예외적으로 허용된다. 
