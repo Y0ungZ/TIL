@@ -6,6 +6,7 @@
 const person = {
   name: 'YoungJu',
   age: 100,
+  hobbies:['Drawing','Eating']
 };
 
 //person:object => 포괄적. person.name을 할 경우 컴파일 오류.
@@ -15,3 +16,12 @@ const person = {
 //다만, (1)처럼 명시적으로 지정하는 것은 좋은 방식이 아니다.
 
 console.log(person.name);
+
+
+let favoriteFoods: string[];
+favoriteFoods = ['Chicken'];
+
+for (const hobby of person.hobbies) {
+  //hobby surely string
+  console.log(hobby.toUpperCase());
+}
