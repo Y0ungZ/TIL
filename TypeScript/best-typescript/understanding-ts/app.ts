@@ -11,5 +11,19 @@ function printResult(num: number) {
   console.log('Result:' + num);
 }
 
+function addAndHandle(n1: number, n2: number, cb: (num: number) => void) {
+  const result = n1 + n2;
+  cb(result);
+}
+
 printResult(add(5, 7)); //Result...
 console.log(printResult(add(5, 7))); //Result ..., undefined
+
+let combineValues: (a: number, b: number) => number;
+combineValues = add;
+
+console.log(combineValues(4, 8));
+
+addAndHandle(1, 3, (result) => {
+  console.log(result);
+});

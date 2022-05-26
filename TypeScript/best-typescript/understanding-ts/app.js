@@ -9,5 +9,15 @@ function printResult(num) {
     // undefined는 값이 할당되지 않은 변수 참조나 정의되지 않은 것.
     console.log('Result:' + num);
 }
+function addAndHandle(n1, n2, cb) {
+    var result = n1 + n2;
+    cb(result);
+}
 printResult(add(5, 7)); //Result...
 console.log(printResult(add(5, 7))); //Result ..., undefined
+var combineValues;
+combineValues = add;
+console.log(combineValues(4, 8));
+addAndHandle(1, 3, function (result) {
+    console.log(result);
+});
