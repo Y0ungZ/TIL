@@ -1,53 +1,42 @@
-function makeElement(string) {
-  let array = [];
-  for (let i = 0; i < string.length - 1; i++) {
-    let element = string[i] + string[i + 1];
-    if (/^[a-z]*/.exec(element)[0] === element) {
-      array.push(element);
+function makeStrArr(str) {
+  const array = [];
+
+  for (let i = 0; i < str.length - 1; i++) {
+    const lowerStr = str.slice(i, i + 2).toLowerCase();
+    const REGEX = /[a-z]{2}/;
+
+    if (REGEX.test(lowerStr)) {
+      array.push(lowerStr);
     }
   }
+
   return array;
 }
 
 function solution(str1, str2) {
-  const INTEGER = 65536;
-  let answer = 0;
+  const MAL_VALUE = 65536;
+  const arr1 = makeStrArr(str1);
+  const arr2 = makeStrArr(str2);
 
-  const A = makeElement(str1.toLowerCase());
-  const B = makeElement(str2.toLowerCase());
-
-  const visitA = Array.from({ length: A.length }, () => false);
-  const visitB = Array.from({ length: B.length }, () => false);
-
-  const intersection = A.filter((value, index) => {
-    for (let i = 0; i < B.length; i++) {
-      if (B[i] === value && !visitB[i]) {
-        visitB[i] = true;
-        visitA[index] = true;
-        return true;
-      }
-    }
-  });
-
-  const union = [...intersection];
-
-  visitA.forEach((el, idx) => {
-    if (!visitA[idx]) {
-      union.push(A[idx]);
-    }
-  });
-
-  visitB.forEach((el, idx) => {
-    if (!visitB[idx]) {
-      union.push(B[idx]);
-    }
-  });
-
-  if (!intersection.length && !union.length) {
-    answer = 1;
-  } else {
-    answer = intersection.length / union.length;
+  if (!arr1.length && !arr2.length) {
+    return MAL_VALUE;
   }
 
-  return Math.floor(answer * INTEGER);
+  const intersection = [];
+  const visitArr1 = Array(arr1.length).fill(false);
+  const visitArr2 = Array(arr2.length).fill(false);
+
+  arr1.forEach((element1, idx1) => {
+    arr2.forEach((element2, idx2) => {
+      if (element1 === element2 && !visitArr1[idx1] && !visitArr2[idx2]) {
+        intersection.push(element1);
+        visitArr1[idx1] = true;
+        visitArr2[idx2] = true;
+      }
+    });
+  });
+
+  return Math.floor(
+    (intersection.length / (arr1.length + arr2.length - intersection.length)) * MAL_VALUE
+  );
 }
