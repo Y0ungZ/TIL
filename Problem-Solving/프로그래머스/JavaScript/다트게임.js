@@ -1,37 +1,20 @@
-const solution = (dartResult) => {
-  let score = dartResult.match(/10|[0-9]/g);
-  let dart = dartResult.split(/10|[0-9]/).slice(1);
+function solution(dartResult) {
+  const answer = [];
+  const bonus = { S: 1, D: 2, T: 3 };
+  const options = { "#": -1, "*": 2, undefined: 1 };
+  const stageSplit = dartResult.split(/(10|[0-9])/).slice(1);
 
   for (let i = 0; i < 3; i++) {
-    if (dart[i].length === 2) {
-      let bonus = dart[i].charAt(0);
-      let option = dart[i].charAt(1);
+    const score = stageSplit[i * 2];
+    const specials = stageSplit[i * 2 + 1];
 
-      if (bonus === 'D') {
-        score[i] = Math.pow(score[i], 2);
-      } else if (bonus === 'T') {
-        score[i] = Math.pow(score[i], 3);
-      }
+    answer.push(Math.pow(score, bonus[specials[0]]));
+    answer[i] *= options[specials[1]];
 
-      if (option === '*') {
-        if (i === 0) {
-          score[i] *= 2;
-        } else {
-          score[i] *= 2;
-          score[i - 1] *= 2;
-        }
-      } else {
-        score[i] *= -1;
-      }
-    } else {
-      let bonus = dart[i].charAt(0);
-      if (bonus === 'D') {
-        score[i] = Math.pow(score[i], 2);
-      } else if (bonus === 'T') {
-        score[i] = Math.pow(score[i], 3);
-      }
+    if (specials[1] === "*" && i) {
+      answer[i - 1] *= +options[specials[1]];
     }
   }
 
-  return score.reduce((a, b) => Number(a) + Number(b));
-};
+  return answer.reduce((a, b) => a + b);
+}
