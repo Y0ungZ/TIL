@@ -1,23 +1,20 @@
 function solution(n, arr1, arr2) {
-  let result = [];
-  let answer = '';
+  const answer = [];
 
-  for (let i = 0; i < n; i++) {
-    answer = '';
-    const a = arr1[i];
-    const b = arr2[i];
-    const sum = a | b;
+  arr1.forEach((_, idx) => {
+    const mapRow = (arr1[idx] | arr2[idx]).toString(2);
+    let answerRow = "";
+    const colDiff = n - mapRow.length;
 
-    for (let j = n - 1; j >= 0; j--) {
-      if (!(sum & (1 << j))) {
-        answer += ' ';
-      } else {
-        answer += '#';
-      }
+    for (let i = 0; i < colDiff; i++) {
+      answerRow += " ";
     }
 
-    result.push(answer);
-  }
+    for (let i = 0; i < mapRow.length; i++) {
+      +mapRow[i] ? (answerRow += "#") : (answerRow += " ");
+    }
+    answer.push(answerRow);
+  });
 
-  return result;
+  return answer;
 }
