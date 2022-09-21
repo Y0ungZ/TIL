@@ -1,21 +1,26 @@
 function solution(record) {
-  var answer = [];
-  const map = new Map();
+  const answer = [];
+  const enterMsg = (nickname) => `${nickname}님이 들어왔습니다.`;
+  const leaveMsg = (nickname) => `${nickname}님이 나갔습니다.`;
+
+  const userMap = new Map();
 
   for (let i = 0; i < record.length; i++) {
-    const [com, id, nic] = record[i].split(" ");
-    if (com === "Leave") {
-      continue;
-    }
-    map.set(id, nic);
+    const [type, id, nickname] = record[i].split(" ");
+    type !== "Leave" && userMap.set(id, nickname);
   }
 
   for (let i = 0; i < record.length; i++) {
-    const [com, id, nic] = record[i].split(" ");
-    if (com === "Enter") {
-      answer.push(`${map.get(id)}님이 들어왔습니다.`);
-    } else if (com === "Leave") {
-      answer.push(`${map.get(id)}님이 나갔습니다.`);
+    const [type, id, nickname] = record[i].split(" ");
+    switch (type) {
+      case "Enter":
+        answer.push(enterMsg(userMap.get(id)));
+        break;
+      case "Leave":
+        answer.push(leaveMsg(userMap.get(id)));
+        break;
+      default:
+        break;
     }
   }
 
