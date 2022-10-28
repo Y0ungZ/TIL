@@ -1,47 +1,45 @@
-const makeMenu = (arr, selectNum) => {
-  const results = [];
-  if (selectNum === 1) return arr.map((el) => [el]);
+function solution(orders, course) {
+  const answer = [];
+  const combinationMap = new Map();
+  const maxValueCourse = Array(11).fill(0);
 
-  arr.forEach((fixed, index, origin) => {
-    const rest = origin.slice(index + 1);
-    const making = makeMenu(rest, selectNum - 1);
-    const attached = making.map((el) => [fixed, ...el]);
-    results.push(...attached);
-  });
+  function getComb(menus, course) {
+    const cases = [];
+    if (course === 1) return menus.map((menu) => [menu]);
 
-  return results;
-};
+    menus.forEach((fixed, idx, origin) => {
+      const rest = origin.slice(idx + 1);
+      const combinations = getComb(rest, course - 1);
+      const attached = combinations.map((comb) => [fixed, ...comb]);
 
-const solution = (orders, course) => {
-  let answer = [];
-  let menus = new Map();
-  let maxValue = Array.from({ length: 11 }, () => 0);
+      cases.push(...attached);
+    });
 
-  for (let i = 0; i < orders.length; i++) {
-    let current = orders[i].split('').sort();
-    for (let j = 0; j < course.length; j++) {
-      const result = makeMenu(current, course[j]);
-      for (let k = 0; k < result.length; k++) {
-        const temp = result[k].join('');
-        if (menus.has(temp)) {
-          let count = menus.get(temp);
-          count++;
-          if (maxValue[course[j]] < count) {
-            maxValue[course[j]] = count;
-          }
-          menus.set(temp, count);
-        } else {
-          menus.set(temp, 1);
-        }
-      }
-    }
+    return cases;
   }
 
-  menus.forEach((value, key, map) => {
-    if (maxValue[key.length] === value) {
+  orders.forEach((order) => {
+    course.forEach((curr) => {
+      const combinations = getComb(order.split("").sort(), curr);
+      combinations.forEach((combination) => {
+        if (combinationMap.has(combination.join(""))) {
+          const updateCount = combinationMap.get(combination.join("")) + 1;
+          combinationMap.set(combination.join(""), updateCount);
+          if (maxValueCourse[curr] < updateCount) {
+            maxValueCourse[curr] = updateCount;
+          }
+        } else {
+          combinationMap.set(combination.join(""), 1);
+        }
+      });
+    });
+  });
+
+  combinationMap.forEach((value, key, _) => {
+    if (maxValueCourse[key.length] === value) {
       answer.push(key);
     }
   });
 
   return answer.sort();
-};
+}
