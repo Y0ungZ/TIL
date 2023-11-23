@@ -23,20 +23,11 @@ function solution(m, musicinfos) {
     const [endH, endM] = end.split(':').map(Number);
     const time = convertTime(endH, endM) - convertTime(startH, startM);
     const replaceSheet = convertSheet(originSheet);
-    let startIdx = 0;
     let matchSheet = replaceSheet.repeat(
-      Math.floor(time / replaceSheet.length),
+      Math.round(time / replaceSheet.length),
     );
-    let remainCount = time % replaceSheet.length;
-    if (matchSheet.length !== 0) {
-      startIdx = replaceSheet.length % time;
-    }
-
-    while (remainCount) {
-      matchSheet += replaceSheet[startIdx % replaceSheet.length];
-      startIdx++;
-      remainCount--;
-    }
+    matchSheet += replaceSheet.substring(0, (time % replaceSheet.length) + 1);
+    matchSheet = matchSheet.slice(0, time);
 
     if (matchSheet.includes(m) && maxTime < time) {
       maxTime = time;
